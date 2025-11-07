@@ -63,6 +63,8 @@ app.use((err, req, res, next) => {
   });
 });
 
+app.use(cors());
+
 // ✅ Start server
 app.listen(PORT, () => {
   console.log('='.repeat(50));
