@@ -11,6 +11,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(cors());
+
 // ✅ Basic middleware - HARUS di atas routes
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -63,9 +65,6 @@ app.use((err, req, res, next) => {
     message: process.env.NODE_ENV === 'development' ? err.message : 'Something went wrong'
   });
 });
-
-app.use(cors());
-app.options("*", cors());
 
 // ✅ Start server
 app.listen(PORT, () => {
