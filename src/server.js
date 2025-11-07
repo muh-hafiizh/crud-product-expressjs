@@ -65,6 +65,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use(cors());
+app.options("*", cors());
 
 // ✅ Start server
 app.listen(PORT, () => {
